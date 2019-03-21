@@ -53,12 +53,12 @@ is_square_multiple(N) ->
 % Поиск минимального числа последовательности
 find_square_multiples(Count, MaxN) -> find_square_multiples(Count, MaxN + 1, 2, [], []).
 
-find_square_multiples(Count, MaxN, Curr, _, MaxListN) when Curr > MaxN ->
-    if
-        erlang:length(MaxListN) >= Count ->
-            lists:last(MaxListN);
-        true -> fail
+find_square_multiples(Count, MaxN, _, _, MaxListN) when erlang:length(MaxListN) == Count ->
+    case lists:last(MaxListN) =< MaxN of
+        true -> lists:last(MaxListN);
+        false -> fail
     end;
+
 find_square_multiples(Count, MaxN, Curr, CurrListN, MaxListN) ->
     case is_square_multiple(Curr) of
         true ->
