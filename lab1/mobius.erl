@@ -54,8 +54,9 @@ is_square_multiple(N) ->
 find_square_multiples(Count, MaxN) -> find_square_multiples(Count, MaxN + 1, 2, [], []).
 
 find_square_multiples(Count, MaxN, _, _, MaxListN) when erlang:length(MaxListN) == Count ->
-    case lists:last(MaxListN) =< MaxN of
-        true -> lists:last(MaxListN);
+    Res = lists:last(MaxListN),
+    case Res =< MaxN of
+        true -> Res;
         false -> fail
     end;
 

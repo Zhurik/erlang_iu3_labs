@@ -18,4 +18,3 @@ fib_g(N) when N == 0 -> 0.
 tail_fib(N) -> tail_fib(N, 0, 1).
 tail_fib(0, Acc1, _) -> Acc1;
 tail_fib(N, Acc1, Acc2) -> tail_fib(N - 1, Acc1 + Acc2, Acc1).
-
