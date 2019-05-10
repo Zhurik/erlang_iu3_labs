@@ -14,13 +14,13 @@ start(Url,QPid)->
 %% @doc содержит простой цикл, выполняющий следующие операции:
 server(Url,QPid)->
 %% @doc Загружаем ленту с указанного URL, с помощью функции httpc:request/1.
-  {ok,{Status={_,Code,_},_,Load}}=httpc:request(Url)
+  {ok,{_={_,Code,_},_,Load}}=httpc:request(Url)
 
 %% @doc Если код ответа равен 200, извлекаем тело ответа и 
 %% разбирает его XML содержимое с помощью 
 %% функции xmerl_scan:string/1.
   ,case Code of 
-    200 ->
+     200->
        {Feed,_} = xmerl_scan:string(Load)
 
 %% @doc Когда информация извлечена из тела запроса, 
