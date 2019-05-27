@@ -8,7 +8,7 @@ cover:compile_directory().
 
 % Получаем RSS ленту по URLу
 % В принципе надо передавать PID процесса rss_queue, но и так сойдет :3
-rss_reader:start("http://rss.cnn.com/rss/cnn_topstories.rss", "<0.35.0>").
+rss_reader:start("http://rss.cnn.com/rss/cnn_topstories.rss", self()).
 ```
 
 URLы:
